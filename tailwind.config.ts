@@ -17,6 +17,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@kamona/tailwindcss-perspective'),
+  ],
 }
 export default config

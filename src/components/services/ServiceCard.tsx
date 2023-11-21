@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface Props {
     serviceTitle: string;
@@ -9,15 +9,19 @@ interface Props {
 export const ServiceCard = ({ serviceTitle, serviceImage, serviceDescription }: Props) => {
     const [showDescription, setShowDescription] = useState(false);
     return (
-        <div className='bg-gray-300 rounded-lg h-48 w-48 flex justify-center items-center cursor-pointer' onClick={() => setShowDescription(!showDescription)}>
-            {/* Front of card */}
-            <div className={!showDescription ? '' : 'hidden'}>
-                <h2 className='text-center'>{serviceTitle}</h2>
-            </div>
-            {/* Back of card */}
-            <div className={showDescription ? '' : 'hidden'}>
-                <p className='p-4'>{serviceDescription}</p>
+        <div className='flip-card drop-shadow-md w-48 h-48 bg-transparent perspective-10'>
+            <div
+            className='flip-card-inner relative rounded-lg h-full w-full'
+            onClick={() => setShowDescription(!showDescription)}>
+                {/* Front of card */}
+                <div className="flip-card-front bg-gray-300 absolute h-full w-full">
+                    <h2 className="text-center mt-20">{serviceTitle}</h2>
+                </div>
+                {/* Back of card */}
+                <div className='flip-card-back bg-secondary absolute w-full h-full'>
+                    <p className="p-4">{serviceDescription}</p>
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
