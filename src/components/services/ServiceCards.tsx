@@ -19,7 +19,7 @@ export const ServiceCards = () => {
     ]
 
     return (
-        <div className="flex gap-8 justify-evenly w-full">
+        <div className="flex flex-col lg:flex-row gap-8 items-center justify-evenly w-full">
             {services.map((service, key) => {
                 return (
                     <div key={key}>
